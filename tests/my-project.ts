@@ -2,7 +2,6 @@ import * as anchor from "@coral-xyz/anchor";   //Seccion de importaciones de las
 import { Program } from "@coral-xyz/anchor";
 import { MyProject } from "../target/types/my_project";
 import { BN } from "@coral-xyz/anchor";
-import { Keypair } from "@solana/web3.js";
 
 
 const provider = anchor.AnchorProvider.env();
@@ -15,7 +14,7 @@ describe("my_project", () => {
 
   const program = anchor.workspace.myProject as Program<MyProject>;
 
-  it("SOL Transfer Anchor", async () => {
+  it("SOL Transfer", async () => {
     const transactionSignature = await program.methods
       .solTransfer(new BN(transferAmount))
       .accounts({
